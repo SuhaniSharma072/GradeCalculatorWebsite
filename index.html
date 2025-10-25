@@ -9,8 +9,78 @@
 <body>
     <!--top bar-->
     <header class="topbar">
-        <h>Grade Calculator</h> 
+       
+        <img
+          src="Screenshot 2025-10-13 222100.png"
+          alt="GradeCalculatorLogo"
+        />
 
-    </header>
+<!--MAJOR GRADE section-->
+    <div class="input-group">
+      <label for="major">Major Grade:</label>
+      <input type="number" id="major" placeholder="Enter major grade">
+      <label for="majorWeight">Weight (%):</label>
+      <input type="number" id="majorWeight" placeholder="Enter major weight">
+    </div>
+
+<!--for MINOR GRADE-->
+    <div class="input-group">
+      <label for="minor">Minor Grade:</label>
+      <input type="number" id="minor" placeholder="Enter minor grade">
+      <label for="minorWeight">Weight (%):</label>
+      <input type="number" id="minorWeight" placeholder="Enter minor weight">
+    </div>
+
+    <button onclick="calculateGrade()">Calculate</button>
+
+    <div class="result" id="result">
+      Your final grade will appear here.
+    </div>
+  </div>
+
+  <!--JAvaScript-->
+  <script>
+    function calculateGrade() {
+      const major = parseFloat(document.getElementById('major').value);
+      const minor = parseFloat(document.getElementById('minor').value);
+      const majorWeight = parseFloat(document.getElementById('majorWeight').value);
+      const minorWeight = parseFloat(document.getElementById('minorWeight').value);
+
+      if (isNaN(major) || isNaN(minor) || isNaN(majorWeight) || isNaN(minorWeight)) {
+        document.getElementById('result').innerHTML = "⚠️ Please enter all fields!";
+        return;
+      }
+
+      const totalWeight = majorWeight + minorWeight;
+      if (totalWeight === 0) {
+        document.getElementById('result').innerHTML = "⚠️ Total weight cannot be 0!";
+        return;
+      }
+
+      // to give out letter grade
+      const finalGrade = (major * (majorWeight / totalWeight)) + (minor * (minorWeight / totalWeight));
+
+      let letter = "";
+      if (finalGrade >= 90) letter = "A";
+      else if (finalGrade >= 80) letter = "B";
+      else if (finalGrade >= 70) letter = "C";
+      else if (finalGrade >= 60) letter = "D";
+      else letter = "F";
+      //to give out color for letter 
+      let color;
+      if (letter === "A") color = "#4CAF50";
+      else if (letter === "B") color = "#8BC34A";
+      else if (letter === "C") color = "#FFC107";
+      else if (letter === "D") color = "#FF9800";
+      else color = "#F44336";
+
+      document.getElementById('result').innerHTML = `
+        <p>Final Grade: <strong>${finalGrade.toFixed(2)}%</strong></p>
+        <p>Letter Grade: <strong style="color:${color}">${letter}</strong></p>
+      `;
+    }
+  </script>
 </body>
 </html>
+
+

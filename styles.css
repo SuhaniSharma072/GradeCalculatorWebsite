@@ -1,27 +1,72 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant:wght@400;600&family=Poppins:wght@300;400&display=swap");
 
 
-body{
-background-color: #e2d3c1;
-}
-/* figure out how to change font for logo,if not change it into image using canva but keep theme minimalistic beige*/
-.topbar{
-    display: flex;
-    height: 60px;
-    width: 100%;
-    position: fixed;
-    margin-top: 0;
-    margin-left: auto;
-    background-image: linear-gradient(to right, #ae8a72, #d8c4b3); 
-    top: 0;
-    left: 0;
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff6eb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-h{
-    font-size: larger;
-    margin-top: 25px;
-    margin-left: 50px;
-    position:fixed;
-    font-family: "Poppins", sans-serif; /*find out why this isn't changing the font*/
+.calculator {
+  background: #fff6eb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  width: 350px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
 }
+
+h1 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0078d7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+button:hover {
+  background: #005fa3;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+
